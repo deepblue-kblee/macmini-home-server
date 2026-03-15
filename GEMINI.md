@@ -19,19 +19,19 @@
     - Verified running containers are stable and paths are correctly resolved.
 
 ## 🚀 Execution Plan (Next Steps)
-1.  **Documentation & Guide:**
+1.  **Security Hardening (Current Priority):**
+    - Audit existing `nginx` and `docker-compose` configurations for security vulnerabilities.
+    - Implement security best practices (Headers, SSL, Fail2ban, etc.).
+    - Leverage `npx skills find` to discover specialized hardening guides.
+2.  **Documentation & Guide:**
     - Create a comprehensive root `README.md` with setup instructions and architecture diagram.
-    - Add service-specific documentation where needed.
-2.  **System Configuration (Non-Docker):**
-    - Create a `scripts/` directory for automation (e.g., backup, update, health check).
-    - Create a `configs/` directory for Mac Mini system-level settings (macOS tweaks, cron jobs).
-3.  **Automation & Maintenance:**
-    - Develop a master script to manage all Docker services (`up`, `down`, `pull`, `logs`).
+3.  **System Configuration (Non-Docker):**
+    - Create a `scripts/` directory for automation (e.g., backup, health check).
+4.  **Automation & Maintenance:**
     - Implement a backup strategy for the `data/` and `config/` folders.
-4.  **Monitoring & Alerts:**
-    - (Future) Consider adding monitoring tools (e.g., Prometheus/Grafana or simpler dashboard).
 
 ## 💡 Notes for Next Session
-- Work can be done directly in `~/docker`.
-- Git operations should be performed from the root (`~/work/repo/macmini-home-server/`).
-- Ensure `secrets.yaml` and other sensitive files are not accidentally committed.
+- **Skill-based Workflow:** Always check for existing skills using `npx skills find` before implementing complex features or security measures.
+- **Environment:** Global settings in `~/.gemini/settings.json` now include `~/.agents/skills/` directory.
+- **Git Operations:** Perform all git commands from the project root.
+- **Security:** Focus on hardening the Mac Mini home server setup.
