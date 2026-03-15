@@ -1,0 +1,1 @@
+- adguard: NameServer(DNS) role

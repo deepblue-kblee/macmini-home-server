@@ -1,0 +1,12 @@
+services:
+  cloudflare-ddns:
+    image: favonia/cloudflare-ddns:latest
+    container_name: cloudflare-ddns
+    restart: always
+    network_mode: host
+    environment:
+      - CF_API_TOKEN=mrHGylkkxMjcFAAKZK131eo53k_0bViQ0brIj9uy
+      - DOMAINS=deepblue.im,*.deepblue.im
+      - PROXIED=true
+      - TZ=Asia/Seoul
+      - IP6_PROVIDER=none

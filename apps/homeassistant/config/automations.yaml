@@ -1,0 +1,12 @@
+- id: '1773485964561'
+  alias: 새로운 자동화
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: wake_on_lan.send_magic_packet
+    metadata: {}
+    data:
+      broadcast_port: 9
+      mac: 00:11:32:F5:40:6B
+  mode: single

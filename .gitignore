@@ -1,0 +1,27 @@
+# Docker Container Data & Logs
+**/data/
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.sqlite*
+**/*.tgz
+**/*.log*
+**/logs/
+**/crash.journal
+**/querylog.json
+
+# Home Assistant Temporary Files
+**/.storage/
+**/.ha_run.lock
+**/.HA_VERSION
+**/deps/
+**/tts/
+
+# Secrets & Credentials (Git-ignored for security)
+**/letsencrypt/
+**/certs/
+**/secrets.yaml
+.env
+
+# MacOS & OS-Specific
+**/.DS_Store
