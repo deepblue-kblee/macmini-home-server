@@ -1,0 +1,8 @@
+description = "세션을 마무리하고 성과를 기록하며 다음 할 일을 정리합니다."
+prompt = """
+현재 세션의 성과를 요약하여 docs/state/CURRENT_STATE.md와 docs/session-state/next-actions.md에 기록하고, 다음 세션을 위한 할 일을 정리해줘.
+인사가 필요한 경우 아주 짧게 하고 핵심 내용에 집중해.
+
+인자: {{args}}
+만약 인자에 `--commit` 또는 `-c`가 포함되어 있다면, 변경 사항을 즉시 커밋할 수 있도록 준비해줘.
+"""

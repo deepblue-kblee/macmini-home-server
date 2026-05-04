@@ -1,0 +1,2 @@
+description = "새 세션을 시작하며 지침을 복기하고 다음 할 일을 보고받습니다."
+prompt = "GEMINI.md의 원칙을 복기하고 docs/session-state/next-actions.md를 읽어 현재 상태와 즉시 실행할 과업을 브리핑해줘."

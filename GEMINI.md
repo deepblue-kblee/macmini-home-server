@@ -4,34 +4,30 @@
 - **Root Directory:** `~/work/repo/macmini-home-server/`
 - **Structure:** Monorepo (Docker services + System configs/scripts)
 - **Primary Access Path:** `~/docker` (Symlinked to `./docker`)
+- **Reference Docs:** `source-docs/` (Symlinked to Google Drive project folder)
+  - *💡 Hint:* This folder contains documents created and updated by AI Agents (e.g., Gemini). Use these to understand previous collaboration history and design decisions.
 - **Remote Repo:** [https://github.com/deepblue-kblee/macmini-home-server](https://github.com/deepblue-kblee/macmini-home-server)
 
 ## ✅ Completed Tasks
-1.  **Repository Refactoring:**
-    - Moved `.git` and `.gitignore` from `docker/` to the project root.
-    - Successfully pushed the initial structure to GitHub.
-    - Verified all files and paths are intact after the move.
-2.  **Service Configuration:**
-    - `docker/apps/`: AdGuard, Cloudflare-DDNS, Home Assistant, n8n, nginx, ollama.
-    - `.gitignore`: Configured to exclude sensitive data (certs, secrets, db, logs).
-3.  **Environment Setup:**
-    - Created a symbolic link: `ln -s ~/work/repo/macmini-home-server/docker ~/docker`.
-    - Verified running containers are stable and paths are correctly resolved.
+1.  **Repository Setup:** Root-based monorepo structure with Git & GitHub integration.
+2.  **Service Migration:** All Docker services (AdGuard, Home Assistant, etc.) moved to `docker/apps/`.
+3.  **Knowledge Integration:** Created `source-docs/` symlink to reference external Google Drive planning documents.
 
 ## 🚀 Execution Plan (Next Steps)
 1.  **Security Hardening (Current Priority):**
-    - Audit existing `nginx` and `docker-compose` configurations for security vulnerabilities.
+    - Audit `nginx` and `docker-compose` configs for security vulnerabilities.
+    - Reference `source-docs/` for original setup logic and agent work logs.
     - Implement security best practices (Headers, SSL, Fail2ban, etc.).
     - Leverage `npx skills find` to discover specialized hardening guides.
 2.  **Documentation & Guide:**
-    - Create a comprehensive root `README.md` with setup instructions and architecture diagram.
+    - Create a comprehensive root `README.md` based on `source-docs/` content.
+    - Do not read `source-docs/`. This is only for human(User).
+    - Refer to docs/*.
 3.  **System Configuration (Non-Docker):**
-    - Create a `scripts/` directory for automation (e.g., backup, health check).
-4.  **Automation & Maintenance:**
-    - Implement a backup strategy for the `data/` and `config/` folders.
+    - Create a `scripts/` directory for automation.
 
 ## 💡 Notes for Next Session
-- **Skill-based Workflow:** Always check for existing skills using `npx skills find` before implementing complex features or security measures.
-- **Environment:** Global settings in `~/.gemini/settings.json` now include `~/.agents/skills/` directory.
-- **Git Operations:** Perform all git commands from the project root.
-- **Security:** Focus on hardening the Mac Mini home server setup.
+- **Knowledge Base:** Use docs/references/*.md to understand the original intent and past implementation steps.
+- **Skill-based Workflow:** Use `npx skills find` for complex/security tasks.
+- **Environment:** Global settings in `~/.gemini/settings.json` now include `~/.agents/skills/`.
+
