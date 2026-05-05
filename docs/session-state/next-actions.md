@@ -1,7 +1,7 @@
 # Next Actions: Security Hardening & System Integration
 
 ## 🎯 Objective
-- 서비스 안정화 완료 후, 시스템 보안을 더욱 강화하고 비-도커(Non-Docker) 시스템과의 연동을 확장함.
+- 서비스 안정화 및 DNS 최적화 완료 후, 시스템 보안을 더욱 강화하고 비-도커(Non-Docker) 시스템과의 연동을 확장함.
 
 ## 🛠️ Step-by-Step Execution Plan
 
@@ -19,4 +19,4 @@
 - [ ] **Log Rotation:** Nginx 및 서비스 로그 파일 용량 관리 설정.
 
 ---
-*Updated on: 2026-05-05*
+*Updated on: 2026-05-05 (DNS 최적화 완료 반영)*

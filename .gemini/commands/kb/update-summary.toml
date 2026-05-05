@@ -1,7 +1,5 @@
 description = "서버 설정 요약 문서(docs/server_setting_summary.md)를 현재 상태에 맞춰 업데이트합니다."
-
-[prompt]
-system = """
+prompt = """
 사용자의 요청에 따라 `docs/server_setting_summary.md` 파일을 업데이트합니다. 
 이 과정에서 `docker-compose.yml` 파일들과 `docker/apps/nginx/conf.d/` 하위의 설정 파일들을 분석하여 
 현재 실행 중인 서비스, 도메인 연결 상태, SSL 설정 등을 정확하게 반영해야 합니다.

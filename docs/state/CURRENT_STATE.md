@@ -1,26 +1,21 @@
-# Current State: Service Restoration & Subdomain Architecture (2026-05-05)
+# Current State: DNS Optimization & Tailscale Integration (2026-05-05)
 
 ## 📡 Connectivity & Domain
 - **Domain:** `deepblue.im`, `*.deepblue.im` (Cloudflare Proxied)
-- **SSL:** Let's Encrypt (Certbot) 기반으로 단일화 완료.
-- **External Access:** 모든 서브도메인(`n8n`, `hast`, `nas`, `adguard`)에 대해 SSL 적용 및 접속 가능.
+- **SSL:** Let's Encrypt (Certbot) 기반 단일화 완료.
+- **Internal DNS:**
+  - AdGuard Home을 통한 `deepblue.im` 및 `*.deepblue.im` Rewrite 적용 (`192.168.219.192`).
+  - 맥미니 본체 전용 `/etc/resolver` 설정으로 로컬 호출 성능 최적화 완료.
 
-## 🛡️ Nginx Configuration
-- **Certificates:** Let's Encrypt 와일드카드 인증서 사용 (자동 갱신 활성).
-- **Architecture:** `ssl_params.conf`를 통한 공통 설정 모듈화 완료.
-- **Subdomains:**
-  - `n8n.deepblue.im`: n8n 서비스 연동.
-  - `hast.deepblue.im`: Home Assistant 연동 (Trusted Proxies 설정 포함).
-  - `nas.deepblue.im`: Synology NAS 연동.
-  - `adguard.deepblue.im`: AdGuard Home 관리 UI (내부망 전용 접근 제어).
-- **Security:** Cloudflare 및 사설 IP 대역에 대한 Real IP 설정 및 신뢰 프록시 설정 최적화.
+## 🛡️ VPN & Network
+- **Tailscale:** 상시 가동 중 (비상 접근성 확보).
+  - **MagicDNS:** `macmini.story-pierce.ts.net` 사용 가능.
+  - **Split DNS:** `deepblue.im` 질의를 맥미니 AdGuard(`100.99.21.73`)로 라우팅하여 외부에서도 내부 IP로 즉시 접속 가능.
 
 ## ✅ Service Status
-- **n8n:** 가동 중 (ON).
-- **AdGuard Home:** 가동 중 (ON). 내부 DNS Rewrite(`*.deepblue.im`) 적용 완료.
-- **Home Assistant:** 가동 중 (ON).
-- **DDNS:** 정상 가동 중.
+- **n8n / Home Assistant / NAS:** 내부망 IP로 직접 연결 및 리버스 프록시 연동 정상.
+- **Ollama:** 구성 완료 및 모델 서빙 준비 상태.
+- **Custom Commands:** `/kb:update-summary` 등 커스텀 커맨드 스키마 오류 수정 완료.
 
-## 🏠 Internal Network
-- **DNS:** 공유기 DHCP 설정을 통해 맥미니(AdGuard Home)를 주 DNS로 사용.
-- **Internal Domain:** 내부망에서도 `*.deepblue.im` 도메인 체계 사용 가능.
+## 🏠 Infrastructure
+- **Router:** DHCP DNS를 맥미니로 설정하여 네트워크 전체 광고 차단 및 도메인 체계 적용.
