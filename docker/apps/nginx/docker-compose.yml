@@ -16,6 +16,11 @@ services:
       - ./logs:/var/log/nginx
     networks:
       - web
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   # 인증서 발급 및 갱신을 담당하는 서비스 (3개월마다 자동 갱신을 위해 유지)
   certbot:

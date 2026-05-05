@@ -5,14 +5,16 @@
 
 ## 🛠️ Step-by-Step Execution Plan
 
-### 1. 보안 강화 (Security Hardening)
-- [ ] **Fail2ban 도입:** Nginx 로그를 모니터링하여 반복적인 악의적 접근 차단.
-- [ ] **보안 헤더 최적화:** `Content-Security-Policy`, `X-Frame-Options` 등 세부 조정.
-- [ ] **접근 제어 확장:** 중요 서비스(n8n 등)에 대해 추가적인 인증 레이어(Authelia 등) 또는 IP 제한 검토.
+### 1. 보안 및 로그 관리 (Completed)
+- [x] **Fail2ban 도입:** 실시간 침입 차단 체계 구축.
+- [x] **보안 헤더 최적화:** 브라우저 보안 강화.
+- [x] **로그 순환 정책:** Docker 로그 드라이버 설정을 통한 용량 관리 자동화.
+- [x] **네트워크 3대 원칙 구현:** geo 모듈 기반 내부/외부 접속 분기 처리.
 
-### 2. 내부 시스템 고도화
-- [ ] **Synology NAS:** WOL(Wake on LAN) 연동 스크립트 작성 및 Home Assistant 대시보드 등록.
-- [ ] **백업 자동화:** 주요 서비스(`letsencrypt`, `n8n`, `HA`) 설정 데이터의 정기적 백업 체계 구축.
+### 2. 내부 시스템 고도화 (Next Session)
+- [ ] **Synology NAS:** WOL 연동 스크립트 작성 및 Home Assistant 대시보드 등록.
+- [ ] **백업 자동화:** 주요 서비스 설정 데이터의 정기적 백업 체계 구축.
+- [ ] **Uptime Kuma:** 서비스 가동 상태 모니터링 및 알림 설정.
 
 ### 3. 모니터링 및 유지보수
 - [ ] **Uptime Kuma:** 각 서비스의 가동 상태 모니터링 및 알림 설정.

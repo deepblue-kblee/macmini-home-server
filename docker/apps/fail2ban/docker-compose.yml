@@ -1,0 +1,23 @@
+services:
+  fail2ban:
+    image: crazymax/fail2ban:latest
+    container_name: fail2ban
+    restart: always
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    privileged: true
+    volumes:
+      - ./data:/data
+      - ../nginx/logs:/var/log/nginx:ro
+    environment:
+      - TZ=Asia/Seoul
+      - F2B_LOG_TARGET=STDOUT
+      - F2B_LOG_LEVEL=INFO
+      - F2B_DB_PURGE_AGE=1d
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
