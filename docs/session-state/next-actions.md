@@ -5,11 +5,12 @@
 
 ## 🛠️ Step-by-Step Execution Plan
 
-### 1. 보안 및 로그 관리 (Completed)
+### 1. 보안 및 로그 관리 (Ongoing / Needs Review)
 - [x] **Fail2ban 도입:** 실시간 침입 차단 체계 구축.
 - [x] **보안 헤더 최적화:** 브라우저 보안 강화.
 - [x] **로그 순환 정책:** Docker 로그 드라이버 설정을 통한 용량 관리 자동화.
 - [x] **네트워크 3대 원칙 구현:** geo 모듈 기반 내부/외부 접속 분기 처리.
+- [!] **Nginx 내부망 접근 이슈:** `allow/deny` 방식으로 전환 및 Docker 브리지 대역(172.16.0.0/12)을 추가했으나, 여전히 일부 환경에서 접근 불가 현상 발생. 추후 디버깅 필요.
 
 ### 2. 내부 시스템 고도화 (Next Session)
 - [ ] **Synology NAS:** WOL 연동 스크립트 작성 및 Home Assistant 대시보드 등록.
@@ -21,4 +22,4 @@
 - [ ] **Log Rotation:** Nginx 및 서비스 로그 파일 용량 관리 설정.
 
 ---
-*Updated on: 2026-05-05 (DNS 최적화 완료 반영)*
+*Updated on: 2026-05-05 (Nginx 접근 제어 로직 개선 반영 - 미완결)*

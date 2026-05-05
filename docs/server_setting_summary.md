@@ -8,7 +8,7 @@
 1.  **내부 우선 및 전면 허용 (Internal First & Full Access)**
     - **의도:** 집 안(내부망)에서는 어떤 서비스든 불편함 없이 접속 가능해야 함.
     - **라우팅:** `/etc/hosts` 및 AdGuard Home DNS Rewrite를 통해 `*.deepblue.im` 접속 시 맥미니 내부 IP(`192.168.219.192`)로 직접 연결.
-    - **권한:** 내부망(192.168.x.x) 및 VPN(100.64.x.x) 접속은 모든 서비스에 대해 **전면 허용**.
+    - **권한:** 내부망(192.168.x.x), VPN(100.64.x.x), Docker 내부 대역(172.16.x.x) 접속은 모든 서비스에 대해 **전면 허용**.
 
 2.  **외부망 선별 허용 및 보안 (External Selective Access)**
     - **의도:** 외부에서는 꼭 필요한 서비스만 열고, 보안이 중요한 서비스는 원천 봉쇄함.
@@ -23,21 +23,34 @@
 
 ---
 
-## Nginx (Gateway)
-- **공통 설정 (`conf.d/common/ssl_params.conf`):**
-    - Cloudflare Real IP 식별 정상화 및 보안 헤더 적용 완료.
-- **서브도메인 접근 정책:**
-    - `n8n.deepblue.im`: 전역 허용.
-    - `adg.deepblue.im`: **내부망 전용** (AdGuard Home).
-    - `hast.deepblue.im`: **내부망 전용** (Home Assistant).
-    - `nas.deepblue.im`: **내부망 전용** (Synology NAS).
+## 🏗️ 시스템 구성 요약
 
-## 활성화된 서비스 (ON)
-- **n8n / AdGuard Home(adg) / Home Assistant(hast) / Fail2ban / Ollama / Cloudflare-DDNS**
+### Nginx (Gateway)
+- **공통 설정 (`conf.d/common/ssl_params.conf`):** Cloudflare Real IP 식별 및 보안 헤더(HSTS, CSP 등) 적용.
+- **인증서 관리:** Certbot (Cloudflare DNS Challenge 방식)을 통해 `deepblue.im`, `*.deepblue.im` 와일드카드 인증서 자동 갱신.
+- **접근 정책 (`allow/deny` 방식):**
+    - `n8n.deepblue.im`: 외부/내부 전역 허용.
+    - `adg.deepblue.im`: **내부망 전용** (AdGuard Home 관리 UI, 13080 포트).
+    - `hast.deepblue.im`: **내부망 전용** (Home Assistant, 8123 포트).
+    - `nas.deepblue.im`: **내부망 전용** (Synology NAS 프록시).
+    - `deepblue.im`: 기본 루트 도메인 (정적 페이지).
 
-## VPN & Internal Network
-- **Tailscale:** 상시 가동 중 (`100.99.21.73`).
+### 활성화된 서비스 (Docker)
+- **Network Interface:** `web` (Bridge, 172.16.0.0/12 대역 사용)
+- **주요 컨테이너:**
+    - `nginx`: 리버스 프록시 및 외부 진입점.
+    - `adguard`: DNS 서버 및 광고 차단 (53, 3000, 13080 포트).
+    - `homeassistant`: 홈 오토메이션 (`network_mode: host`).
+    - `n8n`: 워크플로우 자동화 (5678 포트).
+    - `fail2ban`: 실시간 침입 차단 (`network_mode: host`, Nginx 로그 감시).
+    - `cloudflare-ddns`: 유동 IP를 Cloudflare DNS에 자동 업데이트.
+    - `ollama`: 로컬 LLM 서버 (Apple Silicon 최적화).
+    - `certbot`: SSL 인증서 자동 갱신.
+
+### VPN & 내부 네트워크
+- **Tailscale:** 외부에서 내부망 접근을 위한 가상 사설망 (`100.x.x.x` 대역).
 - **Mac Mini Local IP:** `192.168.219.192`.
+- **접근 허용 대역:** `127.0.0.1`, `192.168.0.0/16`, `100.64.0.0/10`, `172.16.0.0/12`.
 
 ---
-*마지막 업데이트: 2026-05-05 (AdGuard 도메인 단축 및 로컬 접속 최적화 완료)*
+*마지막 업데이트: 2026-05-05 (접근 제어 로직 allow/deny 전환 및 Docker 브리지 대역 반영)*
