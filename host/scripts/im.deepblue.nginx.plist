@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>im.deepblue.nginx</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/opt/nginx/bin/nginx</string>
+        <string>-c</string>
+        <string>/Users/deepblue/services/nginx/nginx.conf</string>
+        <string>-g</string>
+        <string>daemon off;</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/Users/deepblue/services/nginx/logs/launchd_error.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/deepblue/services/nginx/logs/launchd_out.log</string>
+</dict>
+</plist>

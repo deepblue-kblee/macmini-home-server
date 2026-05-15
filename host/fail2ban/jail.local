@@ -1,0 +1,32 @@
+[DEFAULT]
+# macOS에서는 polling 방식 권장 및 pf 사용
+backend = polling
+banaction = pf
+
+# 차단 제외 IP: 로컬, 내부망, Cloudflare IP 대역
+ignoreip = 127.0.0.1/8 ::1 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+
+# 차단 설정
+bantime  = 1h
+findtime = 10m
+maxretry = 5
+
+[nginx-http-auth]
+enabled  = true
+filter   = nginx-http-auth
+port     = http,https
+logpath  = /Users/deepblue/services/nginx/logs/error.log
+
+[nginx-botsearch]
+enabled  = true
+filter   = nginx-botsearch
+port     = http,https
+logpath  = /Users/deepblue/services/nginx/logs/access.log
+maxretry = 2
+
+[nginx-badbots]
+enabled  = true
+filter   = apache-badbots
+port     = http,https
+logpath  = /Users/deepblue/services/nginx/logs/access.log
+maxretry = 2

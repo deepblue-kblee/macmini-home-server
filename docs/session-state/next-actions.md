@@ -1,25 +1,22 @@
-# Next Actions: Infrastructure Migration & Monitoring
+# Next Actions: Maintenance & HA Migration
 
 ## 🎯 Objective
-- Docker Desktop을 Colima로 대체하여 리소스 효율을 높이고, 서비스 모니터링 및 백업 체계를 강화함.
+- 호스트 프로세스 기반 인프라 안정화 및 Home Assistant 이식.
 
-## 🛠️ Step-by-Step Execution Plan
+## 🛠️ Execution Plan
 
-### 1. 인프라 고도화 (Next Priority)
-- [ ] **Docker Desktop -> Colima 전환:**
-    - [ ] Colima 설치 및 Rosetta/VirtioFS 최적화 설정.
-    - [ ] `launchd`를 이용한 맥 부팅 시 Colima 자동 실행 스크립트 등록.
-- [ ] **관리 도구 구축:**
-    - [ ] Portainer 설치 및 `portainer.deepblue.im` (내부망 전용) 도메인 연결.
-    - [ ] Uptime Kuma 도입: 서비스 가동 상태 모니터링 및 알림 설정.
+### 1. 시스템 안정화 및 자동화
+- [ ] **통합 헬스체크**: 모든 호스트 서비스 상태를 주기적으로 감시하고 알림을 보내는 Python 스크립트 구축.
+- [ ] **로그 순환**: `newsyslog`를 설정하여 `~/services/*/logs/` 파일 용량 관리.
+- [ ] **문서 전수 조사**: Repo 내 기존 문서들이 변경된 전략(Docker -> Host)을 정확히 반영하고 있는지 체크하고 수정.
 
-### 2. 네트워크 및 서비스 디버깅
-- [!] **Nginx 내부망 접근 이슈:** 일부 환경에서 `allow/deny` 정책으로 인해 발생하는 접근 차단 현상 디버깅 및 수정.
-- [ ] **Synology NAS 연동:** WOL 스크립트 작성 및 Home Assistant 대시보드 통합.
+### 2. Home Assistant 전환 (Priority)
+- [ ] HA 전용 Python venv 환경 구축.
+- [ ] 기존 Docker 볼륨 데이터 마이그레이션 및 서비스 가동.
+- [ ] HACS 및 스마트홈 기기 연동성 최종 검증.
 
-### 3. 유지보수 및 백업
-- [ ] **백업 자동화:** 서비스 설정 및 중요 데이터 정기 백업 스크립트 작성.
-- [ ] **로그 순환 점검:** Nginx 및 서비스 로그 용량 관리 정책 실효성 확인.
+### 3. 백업 전략 수립
+- [ ] `~/services/` 하위의 중요 데이터(DB, 설정)에 대한 오프사이트 백업 자동화.
 
 ---
-*Updated on: 2026-05-06 (AdGuard 복구 완료 및 Colima 전환 과업 재확인)*
+*Updated on: 2026-05-16 (Docker -> Host Process Migration Complete)*
