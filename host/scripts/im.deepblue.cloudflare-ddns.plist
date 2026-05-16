@@ -6,7 +6,7 @@
     <string>im.deepblue.cloudflare-ddns</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/opt/homebrew/bin/python3</string>
+        <string>/Users/deepblue/services/scripts/venv/bin/python3</string>
         <string>/Users/deepblue/services/scripts/cloudflare_ddns.py</string>
     </array>
     <key>StartInterval</key>

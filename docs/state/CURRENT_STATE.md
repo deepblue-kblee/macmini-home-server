@@ -6,6 +6,7 @@
 - **Base Directory**: `~/services/` (Symlinked to `host/` configs)
 - **Config Management**: Centralized in Git repo (`host/` directory)
 - **Web Root**: `/opt/homebrew/var/www` (Standard Homebrew path for security)
+- **Python Env**: Dedicated `venv` for system scripts (~/services/scripts/venv)
 
 ## 🚀 Running Services (Host)
 
