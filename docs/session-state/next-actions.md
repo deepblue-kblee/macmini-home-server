@@ -13,6 +13,7 @@
 - [ ] **백업 주기 설정**: 필요 시 `launchd`를 이용한 자동 백업 스케줄링.
 
 ## ✅ Past Achievements (2026-05-16)
+- [x] **헬스체크 스크립트 시스템 공용화**: 어느 계정에서나 `health-check` 명령어로 실행 가능하도록 `/usr/local/bin` 배포 완료.
 - [x] **통합 헬스체크 시스템**: 서비스/포트 상태 감시 도구(`health_check.sh`) 구축 및 배포.
 - [x] **로그 관리 자동화**: `newsyslog` 연동 및 상태 요약 도구(`log_manager.sh`) 구축.
 - [x] **호스트 전략 전환**: Nginx, AdGuard, DDNS, Fail2ban 호스트 이관 완료.
