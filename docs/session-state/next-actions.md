@@ -5,9 +5,9 @@
 
 ## 🛠️ Execution Plan (High Priority)
 
-### 1. 시스템 자동화 및 상태 감시 (Next Task)
+### 1. 시스템 자동화 및 상태 감시 (Current Priority)
 - [ ] **통합 헬스체크 스크립트**: 모든 호스트 서비스 상태, 포트 응답, 심볼릭 링크 무결성을 점검하고 텔레그램/이메일 알림을 보내는 Python 스크립트(`~/services/scripts/health_check.py`) 구축.
-- [ ] **로그 순환 및 아카이빙**: `newsyslog` 설정을 통해 `~/services/*/logs/` 파일 용량 관리 및 주기적 압축 보관.
+- [x] **로그 순환 및 아카이빙 (Done)**: `newsyslog` 설정을 통한 자동 로테이션 구축 및 `log_manager.sh` 래퍼 스크립트 제공.
 
 ### 2. 백업 및 데이터 보호
 - [ ] `~/services/` 하위의 중요 설정 및 데이터(AdGuard DB 등)를 오프사이트(S3 또는 클라우드 스토리지)로 자동 백업하는 워크플로우 수립.
