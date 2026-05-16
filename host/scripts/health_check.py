@@ -26,16 +26,16 @@ def main():
         # Add other services as needed
     ]
 
-    results = []
+    print(f"{'SERVICE':<16} {'STATUS':<9} {'PORT':<9} {'PROCESS'}")
+    print("─" * 44)
     for name, port, proc_pattern in services:
         port_ok = check_port("127.0.0.1", port)
         proc_ok = check_process(proc_pattern)
         
-        status = "OK" if (port_ok and proc_ok) else "FAILED"
-        results.append(f"{name:<15} : {status} (Port:{port}, Proc:{'Up' if proc_ok else 'Down'})")
-
-    for res in results:
-        print(res)
+        status = "[ OK ]" if (port_ok and proc_ok) else "[FAILED]"
+        proc_status = "Up" if proc_ok else "Down"
+        print(f"{name:<16} {status:<9} {port:<9} {proc_status}")
+    print("─" * 44)
 
 if __name__ == "__main__":
     main()
