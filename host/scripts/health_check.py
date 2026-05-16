@@ -32,7 +32,7 @@ def main():
         proc_ok = check_process(proc_pattern)
         
         status = "OK" if (port_ok and proc_ok) else "FAILED"
-        results.append(f"{name:<15} : {status} (Port:{port}, Proc:{'R' if proc_ok else 'D'})")
+        results.append(f"{name:<15} : {status} (Port:{port}, Proc:{'Up' if proc_ok else 'Down'})")
 
     for res in results:
         print(res)
