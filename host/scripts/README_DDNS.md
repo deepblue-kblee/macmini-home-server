@@ -19,4 +19,4 @@
   launchctl unload ~/Library/LaunchAgents/im.deepblue.cloudflare-ddns.plist
   launchctl load -w ~/Library/LaunchAgents/im.deepblue.cloudflare-ddns.plist
   ```
-- **View Logs**: `tail -f ~/services/nginx/logs/ddns_out.log`
+- **View Logs**: `tail -f ~/services/scripts/logs/ddns_out.log`

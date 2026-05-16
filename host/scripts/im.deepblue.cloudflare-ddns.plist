@@ -14,8 +14,8 @@
     <key>RunAtLoad</key>
     <true/>
     <key>StandardErrorPath</key>
-    <string>/Users/deepblue/services/nginx/logs/ddns_error.log</string>
+    <string>/Users/deepblue/services/scripts/logs/ddns_error.log</string>
     <key>StandardOutPath</key>
-    <string>/Users/deepblue/services/nginx/logs/ddns_out.log</string>
+    <string>/Users/deepblue/services/scripts/logs/ddns_out.log</string>
 </dict>
 </plist>

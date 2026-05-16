@@ -17,8 +17,8 @@
 | **Fail2Ban** | Security | `/opt/homebrew/etc/fail2ban/` | `launchd` (root) | [README.md](~/services/fail2ban/README.md) |
 
 ## 📦 Pending / Managed Externally
-- **Home Assistant**: Migrating to host process (Python venv) - *Next Phase*
-- **n8n / Ollama**: Managed by separate accounts (Host processes).
+- **Home Assistant**: Deployment on host process (Python venv) postponed - *To be requested later*
+- **n8n / Ollama**: Managed as host processes.
 
 ## 🔗 Sync Mechanism
 - **Config**: `host/` (Git) ↔ `~/services/` (Symlink)
