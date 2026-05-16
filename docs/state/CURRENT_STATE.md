@@ -26,6 +26,7 @@
 - **Data/Logs**: `~/services/[service]/` (Persistent)
 
 ## 🕒 Recent Updates (2026-05-16)
+- **시스템 설정 오류 수정**: Git 추적 오류를 해결하기 위해 `AdGuardHome.yaml` 소유권 복원(`root:wheel` -> `deepblue:staff`). 외부 호출이 실패하던 `oclw.deepblue.im`의 Nginx 프록시 설정을 `localhost`로 수정하여 연결 오류(Connection refused) 해결.
 - **헬스체크 스크립트 시스템 공용화**: 어느 계정에서나 `health-check` 명령어로 서비스 상태를 확인할 수 있도록 `/usr/local/share/macmini-server`에 배포 및 `/usr/local/bin` 심볼릭 링크 생성 완료.
 - **프로젝트 문서화(README.md)**: Monorepo 구조 및 핵심 관리 기능을 요약한 프로젝트 루트 README.md 생성.
 - **헬스체크 출력 시스템 개선**: `health_check.sh`의 출력을 가독성이 높은 테이블 형식으로 개편.
