@@ -1,27 +1,25 @@
-# Next Actions: Maintenance & Automation
+# Next Actions: Automation & Maintenance Phase
 
 ## 🎯 Objective
-- 호스트 프로세스 기반 인프라 안정화 및 시스템 자동화(Health Check).
+- 호스트 프로세스 기반 인프라 안정화 및 시스템 자동화(Health Check/Logging).
 
-## 🛠️ Execution Plan
+## 🛠️ Execution Plan (High Priority)
 
-### 1. 시스템 안정화 및 자동화 (Current Priority)
-- [ ] **통합 헬스체크**: 모든 호스트 서비스 상태, 포트 응답, 심볼릭 링크 무결성을 점검하고 알림을 보내는 Python 스크립트(venv 기반) 구축.
-- [ ] **로그 순환**: `newsyslog`를 설정하여 `~/services/*/logs/` 파일 용량 관리.
+### 1. 시스템 자동화 및 상태 감시 (Next Task)
+- [ ] **통합 헬스체크 스크립트**: 모든 호스트 서비스 상태, 포트 응답, 심볼릭 링크 무결성을 점검하고 텔레그램/이메일 알림을 보내는 Python 스크립트(`~/services/scripts/health_check.py`) 구축.
+- [ ] **로그 순환 및 아카이빙**: `newsyslog` 설정을 통해 `~/services/*/logs/` 파일 용량 관리 및 주기적 압축 보관.
 
-### 2. 백업 전략 수립
-- [ ] `~/services/` 하위의 중요 데이터(DB, 설정)에 대한 오프사이트 백업 자동화.
+### 2. 백업 및 데이터 보호
+- [ ] `~/services/` 하위의 중요 설정 및 데이터(AdGuard DB 등)를 오프사이트(S3 또는 클라우드 스토리지)로 자동 백업하는 워크플로우 수립.
 
-### 3. Home Assistant 전환 (Postponed)
-- [ ] HA 전용 Python venv 환경 구축 (사용자 별도 요청 시 진행).
-- [ ] 기존 Docker 볼륨 데이터 마이그레이션 및 서비스 가동.
-- [ ] HACS 및 스마트홈 기기 연동성 최종 검증.
+### 3. Home Assistant (On Demand)
+- [ ] 사용자 요청 시 HA용 Python venv 환경 구축 및 Docker 데이터 마이그레이션 착수.
 
-### 4. 완료된 항목 (2026-05-16)
-- [x] **문서 전수 최신화**: Server Setting Summary, Current State 등 주요 문서의 Docker 잔재 제거 및 호스트 전략 반영 완료.
-- [x] **네트워크 설정 정리**: Nginx 및 Fail2ban에서 불필요한 Docker 브리지 대역(172.16.0.0/12) 제거 완료.
-- [x] **서비스 복구**: Cloudflare DDNS 라이브러리 문제 해결 및 `venv` 환경 도입 완료.
-- [x] **심볼릭 링크 점검**: `~/services/` 하위 주요 링크의 무결성 전수 확인 완료.
+## ✅ Past Achievements (2026-05-16)
+- [x] **호스트 전략 전환 완료**: 모든 서비스(Nginx, AdGuard, DDNS, Fail2ban)의 Launchd 이관 및 검증.
+- [x] **네트워크 설정 최적화**: Docker 브리지 대역 제거 및 로컬 보안 강화.
+- [x] **DDNS 서비스 복구**: Python venv 도입으로 라이브러리 의존성 문제 해결.
+- [x] **관리 문서 전수 최신화**: Docker 잔재 제거 및 호스트 프로세스 중심 설명 체계 구축.
 
 ---
-*Updated on: 2026-05-16 (Transition to Automation Phase)*
+*Next Session Start Point: 헬스체크 스크립트 설계 및 venv 환경 준비*
