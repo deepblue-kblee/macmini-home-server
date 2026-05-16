@@ -26,8 +26,9 @@
 - **Data/Logs**: `~/services/[service]/` (Persistent)
 
 ## 🕒 Recent Updates (2026-05-16)
-- **로그 관리 자동화 시스템 구축**: macOS `newsyslog`를 활용한 서비스별 로그 로테이션 설정을 완료하고, `log_manager.sh`를 통해 서비스당 한 줄로 상태를 요약 출력하는 기능을 구현함.
+- **통합 헬스체크 및 로그 관리 도구 배포**: 서비스 생존 여부와 포트 응답을 확인하는 `health_check.sh` 및 로그 로테이션 상태를 요약 출력하는 `log_manager.sh` 구현 완료.
+- **로그 관리 자동화 시스템 구축**: macOS `newsyslog`를 활용한 서비스별 로그 로테이션 설정을 완료함.
 - **호스트 기반 전략 전면 도입**: Docker 의존성을 제거하고 모든 서비스를 macOS 호스트 프로세스(Launchd)로 이관 완료.
 - **네트워크 보안 최신화**: Nginx 및 Fail2ban 설정에서 Docker 전용 대역(172.16.x.x)을 제거하고 로컬 호스트 통신 최적화.
 - **서비스 복구 및 격리**: Cloudflare DDNS 라이브러리 충돌 문제를 Python `venv` 도입을 통해 해결하고 안정화.
-- **문서 무결성 확보**: Server Setting Summary를 포함한 모든 관리 문서에서 Docker 관련 설명 제거 및 호스트 중심 설명으로 동기화.
+- **문서 무결성 확보**: 모든 관리 문서에서 Docker 관련 설명을 제거하고 호스트 프로세스 중심 설명으로 동기화.
